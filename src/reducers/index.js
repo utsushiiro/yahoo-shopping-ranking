@@ -1,1 +1,1 @@
-const noop = (state = {}) => state;
+export { default as shopping } from './shopping';
