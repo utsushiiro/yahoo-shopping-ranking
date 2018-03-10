@@ -7,7 +7,7 @@ export default class Ranking extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.categoryId !== nextProps.props.categoryId) {
+    if (this.props.categoryId !== nextProps.categoryId) {
       this.props.onUpdate(nextProps.categoryId);
     }
   }

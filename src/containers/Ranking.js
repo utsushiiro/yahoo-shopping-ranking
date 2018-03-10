@@ -3,7 +3,7 @@ import Ranking from '../components/Ranking';
 import * as actions from '../actions/Ranking';
 
 const mapStateToProps = (state, ownProps) => ({
-  categoryId: state.categoryId
+  categoryId: ownProps.categoryId
 });
 
 const mapDispatchToProps = dispatch => ({
