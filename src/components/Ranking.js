@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Card, { CardMedia, CardContent, CardActions } from 'material-ui/Card';
+import Typography from 'material-ui/Typography';
+import Button from 'material-ui/Button';
 
 export default class Ranking extends React.Component {
   componentWillMount() {
@@ -25,21 +28,38 @@ export default class Ranking extends React.Component {
               return <p>読み込み中...</p>;
             } else {
               return (
-                <ol>
-                  {
-                    ranking.map(item => (
-                      <li key={`ranking-item-${item.code}`}>
-                        <img src={item.imageUrl} alt={item.name} />
-                        <a href={item.url} target="_blank">{item.name}</a>
-                      </li>
-                    ))
-                  }
-                </ol>
+                ranking.map((item, i)=> (
+                  <Card
+                    key={`ranking-item-${item.code}`}
+                    style={{ maxWidth: '500px', margin: '32px auto', padding: "20px 0" }}
+                  >
+                    <CardMedia
+                      image={ item.imageUrl }
+                      title={ `${i + 1}位 ${item.name}` }
+                      style={{ height: 200, backgroundSize: "contain" }}
+                    >
+                    </CardMedia>
+                    <CardContent style={{ textAlign: "center" }}>
+                      <Typography>
+                        { `${i + 1}位 ${item.name}` }
+                      </Typography>
+                    </CardContent>
+                    <CardActions>
+                      <Button
+                        variant={"raised"}
+                        color={"secondary"}
+                        fullWidth
+                        href={item.url}
+                      >
+                        商品ページへ
+                      </Button>
+                    </CardActions>
+                  </Card>
+                ))
               );
             }
           })()
         }
-        <p>カテゴリーID: {this.props.categoryId}</p>
       </div>
     );
   }
