@@ -11,10 +11,10 @@ import Typography from 'material-ui/Typography';
 class App extends Component {
   render() {
     return (
-      <div className={"App"} style={{ paddingLeft: 240 }}>
+      <div className={"App"}>
         <Reboot />
 
-        <AppBar style={{ left: 240 }}>
+        <AppBar style={{ marginLeft: 240 , width: "calc(100% - 240px)"}}>
           <ToolBar>
             <Typography variant={"title"} color={"inherit"} >
               Yahoo!ショッピングランキング
@@ -23,7 +23,7 @@ class App extends Component {
         </AppBar>
         <Nav />
 
-        <div style={{ margin: 64, padding: 32 }}>
+        <div style={{ margin: 64, padding: 32, marginLeft: 240 }}>
           <Switch>
             <Route path={"/all"} component={Ranking} />
             <Route path={"/category/1"} render={ () => <Redirect to={"/all"} /> } />

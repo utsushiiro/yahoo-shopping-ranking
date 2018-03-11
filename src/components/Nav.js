@@ -27,6 +27,24 @@ export default function Nav ({ categories, onClick }) {
       </List>
     </Drawer>
   );
+
+  return (
+    <Drawer variant={"permanent"}>
+      <List style={{ width: 240 }}>
+        {
+          categories.map(category => (
+            <ListItem
+              button
+              key={`nav-item-${category.id}`}
+              onClick={ () => { onClick(to(category)) } }
+            >
+              <ListItemText primary={category.name} />
+            </ListItem>
+          ))
+        }
+      </List>
+    </Drawer>
+  );
 }
 
 Nav.propTypes = {
