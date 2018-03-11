@@ -1,5 +1,5 @@
 const initialState = {
-  categoryId: undefined,
+  category: undefined,
   ranking: undefined,
   error: false
 };
@@ -8,7 +8,7 @@ export default (state = initialState, action) => {
   switch(action.type) {
     case 'START_REQUEST':
       return {
-        categoryId: action.payload.categoryId,
+        category: action.payload.category,
         ranking: undefined,
         error: false
       };
@@ -29,7 +29,7 @@ const getRanking = response => {
   const ranking = [];
   const itemLength = resultSet.totalResultsReturned;
   for (let i = 0; i < itemLength; i++) {
-    const item = resultSet['0'].Result[String.valueOf(i)];
+    const item = resultSet[0].Result[i];
     ranking.push({
       code: item.Code,
       name: item.Name,
