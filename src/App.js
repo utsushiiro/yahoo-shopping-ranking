@@ -5,7 +5,7 @@ import Nav from './containers/Nav';
 import Reboot from 'material-ui/Reboot';
 import AppBar from 'material-ui/AppBar';
 import ToolBar from 'material-ui/Toolbar';
-import Typegraphy from 'material-ui/Typography';
+import Typography from 'material-ui/Typography';
 
 
 class App extends Component {
@@ -16,9 +16,9 @@ class App extends Component {
 
         <AppBar>
           <ToolBar>
-            <Typegraphy type={"title"} color={"inherit"}>
+            <Typography variant={"title"} color={"inherit"} >
               Yahoo!ショッピングランキング
-            </Typegraphy>
+            </Typography>
           </ToolBar>
         </AppBar>
         <Nav />
